@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import Navigation from "./components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,18 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav className="w-full bg-foreground text-background py-4 px-8 flex items-center shadow-md mb-8">
-          <div className="font-bold text-lg tracking-wide">Base64 Tools</div>
-          <div className="ml-8 flex gap-4">
-            <Link href="/" className="hover:underline underline-offset-4 font-medium">Base64 Encode/Decode</Link>
-            <Link href="/image-to-base64" className="hover:underline underline-offset-4 font-medium">Image to Base64</Link>
-            <Link href="/markdown-html" className="hover:underline underline-offset-4 font-medium">Markdown ⇄ HTML</Link>
-            <Link href="/encryption-tools" className="hover:underline underline-offset-4 font-medium">Encryption Tools</Link>
-            <Link href="/encoding-tools" className="hover:underline underline-offset-4 font-medium">Encoding Tools</Link>
-            <Link href="/json-formatter" className="hover:underline underline-offset-4 font-medium">JSON Formatter</Link>
-            <Link href="/regex-tester" className="hover:underline underline-offset-4 font-medium">Regex Tester</Link>
-          </div>
-        </nav>
+        <Navigation />
         {children}
       </body>
     </html>
