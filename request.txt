@@ -1,0 +1,143 @@
+1.在各个页面的最下方增加导航栏目（深色背景），分为三部分的内容，每一部分都有功能项，点击可以跳转对应页面，
+tools                  F.A.Q.的全程          Others
+下方罗列网站的功能        F.A.Q.               Contact Us
+                       Privacy Policy       Terms of Service
+点击F.A.Q.  ，Privacy Policy  ，Contact Us，Terms of Service
+可以跳转对应的页面，因此需要创建对应的页面，页面风格格式与现有页面风格一致。
+2.创建FAQ页面，内容参考：
+Frequently Asked Questions (FAQ)
+
+Here you will find answers to some of the more frequently asked questions about our online calculators and converters.
+
+Are all your calculators free?
+
+Yes, we are committed to providing this service for free. You can use all our online calculators, converters, and random generators to your heart's desire, within reasonable limit.
+How can I embed a calculator / converter / randomizer on my site or blog?
+
+Most of our tools are available to be embedded in other sites. Just look for a "Put it on your site!" box near the results of your calculation. The instructions are very straightforward and require minimum technical expertise. There are some customization options available, but currently our calculators are only available in English.
+What are the sources for the formulas used?
+
+The formulas are from textbooks, scientific papers, and other authoritative material. Many calculators would have a reference list, pointing to the specific material used. When there is controversy on which is the correct formula, we do our best to explain the choice of formula, and if possible - provide results for each viable equation.
+How to cite calculatewell.com?
+
+It is easy to cite our site. If you are writing an academic paper, thesis, or even just a course-work/report, the way to cite any of our calculators and information on our calculator pages is displayed near the footer on each page. Just scroll down and look for a "Cite this calculator & page" or "Cite this converter & page" box.
+How to report issues or errors?
+
+Despite our best effort some calculators might not function as expected or might produce strange results in boundary cases. If you spot what you believe is an error or a visual bug in our tools, please, contact us and make sure you provide a detailed explanation of the issue.
+I need a consultation regarding a particular issue
+
+While we do offer many free tools which can help you solve a range of everyday tasks such as converting a recipe from one metric to another or one serving size to another or calculating the number of tiles you'd need to cover your bathroom floor, as well as a number of highly complex and specialized tasks such as calculating a hazard ratio statistic for the outcome of a clinical trial we do not offer consultations on any of these issues.
+
+If you need help in deciding on the input or in interpreting the results from our calculators, consulting the text below each tool is a good starting point, but in some cases you might ultimately need to enlist the services of a professional consultant.
+
+3.创建Privacy Policy页面，内容参考：
+Privacy Policy
+
+Privacy Policy for calculatewell.com
+
+This Policy applies as between you, the User of this Web Site and calculatewell.com, the owner and provider of this Web Site. This Policy applies to our use of any and all Data collected by us in relation to your use of the Web Site and any Services or Systems therein.
+
+TLDR; We use cookies and other browser storage to deliver our service and anonymously analyze the usage of our website in order to improve our services. Data entered in some calculators may be collected in an anonymous fashion and processed for the purposes of debugging and improving our service.
+1. Definitions and Interpretation
+
+In this Policy the following terms shall have the following meanings:
+
+"Content" means any text, graphics, images, audio, video, software, data compilations and any other form of information capable of being stored in a computer that appears on or forms part of this Web Site;
+"Cookie" means a small text file placed on your computer by calculatewell.com when you visit certain parts of this Web Site. This allows us to identify recurring visitors and to analyse their browsing habits within the Web Site.
+"Data" means collectively all information that you submit to the Web Site. This includes, but is not limited to information submitted using any of our Services or Systems;
+"calculatewell.com" means calculatewell.com, the owner and operator of this website;
+"Service" means collectively any online facilities, tools, services or information that calculatewell.com makes available through the Web Site either now or in the future;
+"System" means any online communications infrastructure that calculatewell.com makes available through the Web Site either now or in the future;
+"User" / "Users" means any third party that accesses the Web Site and is not employed by calculatewell.com and acting in the course of their employment;
+"Web Site" means the website that you are currently using (calculatewell.com) and any sub-domains of this site unless expressly excluded by their own terms and conditions.
+2. Data Collected
+
+We may collect information about your usage of the Service, as well as information about you, from emails, phone calls or letters that you send to us or from information you post on our Website. We only use this information in accordance with this privacy policy.
+3. Our Use of Data
+
+3.1 Any personal Data you might submit through the use of our tools may be retained in an anonymized form by calculatewell.com for as long as you use the Services and Systems provided on the Web Site.
+
+3.2 Unless we are obliged or permitted by law to do so, and subject to Clause 4, your Data will not be disclosed to third parties.
+
+3.3 Any or all of the above Data may be required by us from time to time in order to provide you with the best possible service and experience when using our Web Site. Specifically, Data may be used by us for the following reasons:
+
+internal record keeping;
+improvement of our products / services;
+4. Third Party Web Sites and Services
+
+calculatewell.com may, from time to time, employ the services of other parties for dealing with matters that may include, but are not limited to System maintenance, advertising and marketing. The providers of such services have access to certain personal Data provided by Users of this Web Site. Any Data used by such parties is used only to the extent required by them to perform the services that calculatewell.com requests.
+5. Changes of Business Ownership and Control
+
+calculatewell.com may, from time to time, expand or reduce its business and this may involve the sale of certain divisions or the transfer of control of certain divisions to other parties. Data provided by Users will, where it is relevant to any division so transferred, be transferred along with that division and the new owner or newly controlling party will, under the terms of this Policy, be permitted to use the Data for the purposes for which it was supplied by you.
+6. Controlling Access to your Data
+
+6.1 Wherever you are required to submit Data, you will be given options to restrict our use of that Data. This may include the following:
+
+use of Data for direct marketing purposes;
+sharing Data with third parties.
+6.2 With regard to "Personal Information" as defined by the California Consumer Privacy Act (CCPA), you have the option to completely opt out of giving us the right to "sell" such data to third parties.
+7. Your Right to Withhold Information
+
+7.1 You may access certain areas of the Web Site without providing any Data at all. However, to use all Services and Systems available on the Web Site you may be required to submit data relevant to the service at hand, e.g. a calculator cannot calculate anything without input.
+
+7.2 You may restrict your internet browser's use of Cookies. For more information see Clause 10 below.
+8. Accessing your own Data
+
+Since we do not retain any personally identifiable data we do not and cannot offer any type of access to anonymized data stored on our end.
+9. Security
+
+Data security is of great importance to calculatewell.com and to protect your Data we have put in place suitable physical, electronic and managerial procedures to safeguard and secure Data collected online.
+10. Cookies
+
+10.1 calculatewell.com may set and access first-party Cookies on your computer, or use other local storage mechanisms of your browser. These Cookies and other locally stored data are integral to the services provided by the Web Site to you.
+
+10.2 You can choose to enable or disable Cookies and local storage in your web browser. By default, your browser will accept Cookies, however this can be altered.
+
+10.3 You may delete Cookies and other locally stored data, however you may lose any information that enables you to use the Web Site more efficiently.
+
+10.4 The Web Site uses third-party Cookies as well. These Cookies are not integral to the services provided by the Web Site to you and may be blocked at your choosing via your internet browser's privacy settings.
+11. Changes to this Policy
+
+calculatewell.com reserves the right to change this Privacy Policy as we may deem necessary from time to time or as may be required by law. Any changes will be immediately posted on the Web Site and you are deemed to have accepted the terms of the Policy on your first use of the Web Site following the alterations.
+
+4.创建Terms of Service页面，内容参考：
+Terms of Service
+
+Terms of Service for calculatewell.com
+
+Last updated: January 2025
+
+Acceptance of Terms
+
+By accessing and using calculatewell.com, you accept and agree to be bound by the terms and provision of this agreement.
+Use License
+
+Permission is granted to temporarily download one copy of the materials (information or software) on calculatewell.com for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+
+Modify or copy the materials
+Use the materials for any commercial purpose or for any public display
+Attempt to reverse engineer any software contained on calculatewell.com
+Remove any copyright or other proprietary notations from the materials
+Disclaimer
+
+Our online calculators, converters, and content are provided "as is", free of charge, and without any warranty or guarantee. Each tool is carefully developed and rigorously tested, and our content is well-sourced, but despite our best effort it is possible they contain errors. We are not to be held responsible for any resulting damages from proper or improper use of the service.
+Limitations
+
+In no event shall calculatewell.com or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on calculatewell.com.
+Accuracy of Materials
+
+The materials appearing on calculatewell.com could include technical, typographical, or photographic errors. calculatewell.com does not warrant that any of the materials on its website are accurate, complete, or current. calculatewell.com may make changes to the materials contained on its website at any time without notice.
+Links
+
+calculatewell.com has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by calculatewell.com of the site.
+Modifications
+
+calculatewell.com may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these Terms of Service.
+Governing Law
+
+These terms and conditions are governed by and construed in accordance with the laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+Contact Information
+
+If you have any questions about these Terms of Service, please contact us through our website's contact form.
+
+以上页面中所有涉及到的 calculatewell.com 全局切换为 base64toolsonine.com
