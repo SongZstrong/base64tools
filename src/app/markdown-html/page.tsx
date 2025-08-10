@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import TurndownService from 'turndown';
 
@@ -8,6 +8,17 @@ export default function MarkdownHtml() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [mode, setMode] = useState<'md2html' | 'html2md'>('md2html');
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "Markdown to HTML Converter - Free Online Tool | Base64 Tools Online";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free online Markdown to HTML and HTML to Markdown converter. Convert between Markdown and HTML formats with our easy-to-use tools. Perfect for content creators and developers.');
+    }
+  }, []);
 
   const examples = {
     md2html: `# Welcome to Markdown
@@ -77,7 +88,7 @@ function hello() {
 
   function handleCopy() {
     if (output) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(output).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -243,6 +254,61 @@ function hello() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What is Markdown?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Markdown is a lightweight markup language that uses plain text formatting syntax to create rich text documents. 
+              It&apos;s designed to be easy to read and write, making it popular for documentation, README files, and content creation.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              When should I convert Markdown to HTML?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Convert Markdown to HTML when you need to display content on websites, in web applications, or when 
+              you want to add styling and interactivity that HTML provides. HTML is the standard format for web content.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Can I convert HTML back to Markdown?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Yes, our tool can convert HTML back to Markdown. This is useful when you have existing HTML content 
+              that you want to convert to Markdown format for easier editing or documentation purposes.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What Markdown features are supported?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Our converter supports all standard Markdown features including headers, bold/italic text, links, 
+              images, code blocks, lists, blockquotes, and tables. It handles both inline and block-level elements.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Is the conversion lossless?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              While our converter preserves the semantic meaning of your content, some formatting details may vary 
+              slightly between Markdown and HTML due to differences in how they represent certain elements. The core 
+              content and structure remain intact.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
-} 
+}

@@ -16,6 +16,12 @@ export default function Navigation() {
     { href: "/regex-tester", label: "Regex Tester" },
   ];
 
+  const infoItems = [
+    { href: "/about", label: "About" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <nav className="w-full bg-foreground text-background py-4 px-4 md:px-8 shadow-md mb-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -29,6 +35,16 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               className="hover:underline underline-offset-4 font-medium text-sm whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="border-l border-white/20 h-6 mx-2"></div>
+          {infoItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="hover:underline underline-offset-4 font-medium text-sm whitespace-nowrap text-white/80 hover:text-white"
             >
               {item.label}
             </Link>
@@ -93,6 +109,18 @@ export default function Navigation() {
                 {item.label}
               </Link>
             ))}
+            <div className="border-t border-white/20 pt-3 mt-3">
+              {infoItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block hover:bg-white/10 rounded px-3 py-2 font-medium text-sm transition-colors text-white/80"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}

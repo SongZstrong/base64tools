@@ -1,4 +1,19 @@
-export default function PrivacyPage() {
+'use client';
+import { useEffect, useState } from "react";
+
+export default function Privacy() {
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "Privacy Policy - Base64 Tools Online | Data Protection";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Read our Privacy Policy for Base64 Tools Online. Learn how we protect your data and maintain your privacy when using our free online encoding and decoding tools.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
@@ -92,6 +107,59 @@ export default function PrivacyPage() {
                 base64toolsonine.com reserves the right to change this Privacy Policy as we may deem necessary from time to time or as may be required by law. Any changes will be immediately posted on the Web Site and you are deemed to have accepted the terms of the Policy on your first use of the Web Site following the alterations.
               </p>
             </section>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-8 bg-gray-50 p-6 rounded-lg">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-4">
+              <div className="border-b border-gray-200 pb-3">
+                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                  Do you collect personal information?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  We only collect anonymous usage data to improve our services. We do not collect, store, or process any personal information that could identify individual users.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-3">
+                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                  How do you protect my data?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  All data processing happens locally in your browser. We use secure connections (HTTPS) and implement industry-standard security measures to protect any data that may be transmitted.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-3">
+                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                  Do you use cookies?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Yes, we use cookies and local storage to improve your experience and analyze website usage. You can disable these in your browser settings if you prefer.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-3">
+                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                  Do you share data with third parties?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  No, we do not share, sell, or disclose any user data to third parties. Your privacy is our priority, and we maintain strict data protection standards.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                  How can I contact you about privacy concerns?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  If you have any privacy-related questions or concerns, please contact us through our contact page. We&apos;re committed to transparency and will respond to all privacy inquiries promptly.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

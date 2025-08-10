@@ -16,6 +16,17 @@ export default function RegexTester() {
   const [matches, setMatches] = useState<MatchInfo[]>([]);
   const [isValid, setIsValid] = useState(true);
   const [error, setError] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "Regex Tester - Test Regular Expressions Online | Base64 Tools Online";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free online regular expression tester. Test and debug regex patterns with real-time matching, highlighting, and detailed match information. Perfect for developers and programmers.');
+    }
+  }, []);
 
   useEffect(() => {
     if (!pattern || !testString) {
@@ -63,7 +74,7 @@ export default function RegexTester() {
     ).join('\n');
     
     if (result) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(result).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -292,6 +303,61 @@ export default function RegexTester() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What are regular expressions?
+            </h3>
+                          <p className="text-gray-700 dark:text-gray-300 text-sm">
+                Regular expressions (regex) are patterns used to match character combinations in strings. They&apos;re powerful 
+                tools for searching, editing, and manipulating text data. Regex is supported in most programming languages 
+                and text editors.
+              </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What do the regex flags mean?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Common flags include: &apos;g&apos; (global - find all matches), &apos;i&apos; (case-insensitive), &apos;m&apos; (multiline), &apos;s&apos; (dotall), 
+              &apos;u&apos; (unicode), and &apos;y&apos; (sticky). The &apos;g&apos; flag is most commonly used to find all occurrences in a string.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              How do I match email addresses?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              A basic email regex pattern is: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]&#123;2,&#125;$. This matches most 
+              common email formats. For production use, consider more comprehensive patterns that handle edge cases.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What are capture groups?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Capture groups are parts of a regex pattern enclosed in parentheses (). They allow you to extract specific 
+              parts of a match. For example, in (\\d{3})-(\\d{3})-(\\d{4}), each group captures a part of a phone number.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              How do I escape special characters?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Use a backslash (\\) before special characters to treat them literally. For example, \\. matches a literal 
+              dot, \\+ matches a literal plus sign, and \\* matches a literal asterisk. This is called escaping.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
-} 
+}

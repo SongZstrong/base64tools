@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CryptoJS from 'crypto-js';
 
 export default function EncryptionTools() {
@@ -9,6 +9,17 @@ export default function EncryptionTools() {
   const [mode, setMode] = useState<'encrypt' | 'decrypt'>('encrypt');
   const [method, setMethod] = useState<'md5' | 'sha1' | 'sha256' | 'sha512' | 'aes' | 'des'>('md5');
   const [key, setKey] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "Encryption Tools - Hash, Encrypt and Decrypt Online | Base64 Tools Online";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free online encryption tools for hashing, encrypting and decrypting data. Support for MD5, SHA1, SHA256, SHA512, AES, DES and more encryption algorithms.');
+    }
+  }, []);
 
   const examples = {
     md5: {
@@ -106,7 +117,7 @@ export default function EncryptionTools() {
 
   function handleCopy() {
     if (output) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(output).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -322,6 +333,62 @@ export default function EncryptionTools() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
             <span>Real-time encryption/decryption</span>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What&apos;s the difference between hashing and encryption?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Hashing is a one-way process that converts data into a fixed-size string (hash) that cannot be reversed. 
+              Encryption is a two-way process that can be reversed with the correct key. Use hashing for data integrity 
+              and encryption for data confidentiality.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Which hash algorithm should I use?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              For new applications, use SHA-256 or SHA-512 as they are currently secure. Avoid MD5 and SHA-1 as they 
+              are cryptographically broken. SHA-256 is widely used and provides excellent security for most purposes.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Is AES encryption secure?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Yes, AES (Advanced Encryption Standard) is very secure and is the industry standard for symmetric encryption. 
+              It&apos;s used by governments, banks, and security-conscious organizations worldwide. AES-256 provides the highest 
+              security level.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Can I decrypt data without the key?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              No, you cannot decrypt AES or DES encrypted data without the correct key. This is the fundamental principle 
+              of encryption. If you lose the key, the data cannot be recovered. Always keep your encryption keys safe.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Why is DES considered insecure?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              DES uses only a 56-bit key, which is too short by modern standards. It can be broken by brute force 
+              attacks in hours or days. AES with 128-bit or longer keys is the recommended replacement for DES.
+            </p>
           </div>
         </div>
       </div>

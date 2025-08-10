@@ -1,12 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function EncodingTools() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
   const [method, setMethod] = useState<'base64' | 'url' | 'unicode' | 'hex'>('base64');
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "Encoding Tools - Base64, URL, Unicode, Hex Encoder/Decoder | Base64 Tools Online";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free online encoding and decoding tools. Convert between Base64, URL encoding, Unicode escape sequences, and hexadecimal formats. Perfect for developers and data processing.');
+    }
+  }, []);
 
   const examples = {
     base64: {
@@ -100,7 +111,7 @@ export default function EncodingTools() {
 
   function handleCopy() {
     if (output) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(output).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -290,6 +301,55 @@ export default function EncodingTools() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
             <span>Real-time encoding/decoding</span>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What&apos;s the difference between Base64 and URL encoding?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Base64 encoding converts binary data to ASCII text using 64 characters (A-Z, a-z, 0-9, +, /), 
+              while URL encoding replaces special characters with percent-encoded values. Base64 is used for 
+              binary data, URL encoding for safe URL transmission.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              When should I use Unicode escape sequences?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Use Unicode escape sequences when you need to represent Unicode characters in programming languages 
+              that don&apos;t support them directly, or when working with JSON strings that need to be portable across 
+              different systems.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What are the advantages of hexadecimal encoding?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Hexadecimal encoding is useful for debugging binary data, representing memory addresses, 
+              working with low-level programming, and when you need a compact representation of binary data 
+              that&apos;s easy to read and manipulate.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              How do I choose the right encoding method?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Choose Base64 for binary data and email attachments, URL encoding for web parameters, 
+              Unicode escapes for programming language compatibility, and hexadecimal for debugging 
+              and low-level programming tasks.
+            </p>
           </div>
         </div>
       </div>

@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://base64toolsonline.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private areas (if any in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all tools and pages
+Allow: /encoding-tools/
+Allow: /encryption-tools/
+Allow: /image-to-base64/
+Allow: /json-formatter/
+Allow: /markdown-html/
+Allow: /regex-tester/
+Allow: /contact/
+Allow: /faq/
+Allow: /about/
+Allow: /privacy/
+Allow: /terms/

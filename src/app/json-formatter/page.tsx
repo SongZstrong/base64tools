@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function JsonFormatter() {
   const [input, setInput] = useState('');
@@ -8,6 +8,17 @@ export default function JsonFormatter() {
   const [indentSize, setIndentSize] = useState(2);
   const [errors, setErrors] = useState<string[]>([]);
   const [isValid, setIsValid] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
+  // Set page title and meta description only on client
+  useEffect(() => {
+    setIsClient(true);
+    document.title = "JSON Formatter - Format, Validate and Beautify JSON | Base64 Tools Online";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free online JSON formatter, validator and beautifier. Format JSON with proper indentation, validate syntax, minify JSON and convert between different JSON formats.');
+    }
+  }, []);
 
   const exampleJson = `{
   "name": "John Doe",
@@ -50,7 +61,7 @@ export default function JsonFormatter() {
       } else if (action === 'compact') {
         setOutput(JSON.stringify(parsed, null, 0));
       }
-    } catch (error) {
+    } catch {
       setErrors(['Failed to format JSON']);
       setIsValid(false);
     }
@@ -73,7 +84,7 @@ export default function JsonFormatter() {
 
   function handleCopy() {
     if (output) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
+      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(output).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -274,6 +285,61 @@ export default function JsonFormatter() {
 {exampleJson}
         </pre>
       </div>
+
+      {/* FAQ Section */}
+      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What is JSON formatting?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              JSON formatting (beautifying) adds proper indentation, line breaks, and spacing to make JSON data 
+              human-readable. It doesn&apos;t change the data structure, just makes it easier to read and understand.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What&apos;s the difference between minify and compact?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Minify removes all unnecessary whitespace to create the smallest possible file size. Compact adds 
+              minimal formatting (no indentation) while keeping line breaks for readability. Both reduce file size 
+              compared to beautified JSON.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              How do I fix common JSON errors?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              Common errors include missing quotes around property names, trailing commas, and unescaped quotes in strings. 
+              Our validator will highlight these issues. Always use double quotes for strings and ensure proper comma placement.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              What&apos;s the best indentation size for JSON?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              The most common indentation sizes are 2 or 4 spaces. 2 spaces are popular in web development, 
+              while 4 spaces are common in other programming contexts. Choose what works best for your team&apos;s coding standards.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
+              Can I format invalid JSON?
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 text-sm">
+              No, you cannot format invalid JSON. The formatter requires valid JSON syntax to work. Use the validator 
+              first to identify and fix any syntax errors, then format the corrected JSON.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
-} 
+}
