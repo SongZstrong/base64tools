@@ -1,22 +1,11 @@
 'use client';
 
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 export default function ImageToBase64() {
   const [base64, setBase64] = useState('');
   const [error, setError] = useState('');
   const [fileName, setFileName] = useState('');
-  const [isClient, setIsClient] = useState(false);
-
-  // Set page title and meta description only on client
-  useEffect(() => {
-    setIsClient(true);
-    document.title = "Image to Base64 Converter - Convert Images to Base64 Online | Base64 Tools Online";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Free online image to Base64 converter. Convert images to Base64 format for embedding in HTML, CSS, or data URLs. Support for JPG, PNG, GIF and other image formats.');
-    }
-  }, []);
 
   function handleFileChange(e: ChangeEvent<HTMLInputElement>) {
     setError('');
@@ -41,7 +30,7 @@ export default function ImageToBase64() {
 
   function handleCopy() {
     if (base64) {
-      if (typeof window !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(base64).catch(err => {
           console.error('Failed to copy to clipboard:', err);
           // Fallback: select text and show message
@@ -246,61 +235,6 @@ export default function ImageToBase64() {
             <div className="text-gray-600 mt-1">
               <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...&apos;);</code>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="mt-12 bg-gray-50 dark:bg-gray-800/20 p-6 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
-              What image formats are supported?
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Our tool supports all common image formats including JPEG, PNG, GIF, WebP, BMP, SVG, and more. 
-              Any image file that your browser can display can be converted to Base64 format.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
-              How do I use the Base64 string in HTML or CSS?
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              In HTML: &lt;img src=&quot;data:image/jpeg;base64,YOUR_BASE64_STRING&quot;&gt;. In CSS: 
-              background-image: url(&apos;data:image/jpeg;base64,YOUR_BASE64_STRING&apos;). Replace &apos;jpeg&apos; with your image format.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
-              Does Base64 encoding increase file size?
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Yes, Base64 encoding increases file size by approximately 33% because it converts binary data to ASCII text. 
-              This is the trade-off for being able to embed images directly in text-based formats.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
-              When should I use Base64 images?
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Use Base64 images for small images (under 100KB), when you need to embed images in HTML emails, 
-              for single-page applications, or when you want to avoid additional HTTP requests. For larger images, 
-              consider hosting them separately.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-blue-600 dark:text-blue-400">
-              Can I convert Base64 back to an image file?
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Yes, you can convert Base64 back to an image file. Many image editing tools and online converters 
-              support this. You can also use our Base64 decoder tool to convert the Base64 string back to binary data.
-            </p>
           </div>
         </div>
       </div>
